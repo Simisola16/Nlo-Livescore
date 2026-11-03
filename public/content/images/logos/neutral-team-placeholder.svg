@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" fill="none">
+  <path d="M60 8L14 26V66C14 100.5 33.6 124.8 60 134C86.4 124.8 106 100.5 106 66V26L60 8Z" fill="#F1F5F9" stroke="#64748B" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M60 16L22 31V65C22 94.2 38.4 115.2 60 123.5C81.6 115.2 98 94.2 98 65V31L60 16Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <circle cx="60" cy="64" r="22" fill="#CBD5E1" stroke="#475569" stroke-width="2.5"/>
+  <polygon points="60,51 69,58 65,69 55,69 51,58" fill="#64748B"/>
+  <line x1="60" y1="42" x2="60" y2="51" stroke="#475569" stroke-width="2"/>
+  <line x1="69" y1="58" x2="79" y2="55" stroke="#475569" stroke-width="2"/>
+  <line x1="65" y1="69" x2="72" y2="79" stroke="#475569" stroke-width="2"/>
+  <line x1="55" y1="69" x2="48" y2="79" stroke="#475569" stroke-width="2"/>
+  <line x1="51" y1="58" x2="41" y2="55" stroke="#475569" stroke-width="2"/>
+  <rect x="34" y="96" width="52" height="14" rx="4" fill="#475569"/>
+  <text x="60" y="106" text-anchor="middle" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="8" font-weight="700" letter-spacing="0.08em">CLUB CREST</text>
+</svg>
+
