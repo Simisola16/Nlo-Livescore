@@ -2,7 +2,10 @@ import { io, type Socket } from 'socket.io-client';
 
 const TOKEN_KEY = 'nlo_cup_auth_token';
 export const API_BASE_URL: string =
-  ((import.meta as any).env?.VITE_API_BASE_URL as string | undefined)?.replace(/\/$/, '') || '';
+  ((import.meta as any).env?.VITE_API_BASE_URL as string | undefined)
+    ?.trim()
+    .replace(/\/api\/?$/, '')
+    .replace(/\/+$/, '') || '';
 
 export function resolveAssetUrl(url: string | null | undefined): string {
   if (!url) return '';
