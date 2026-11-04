@@ -95,7 +95,11 @@ export const HomePage: React.FC = () => {
         );
         if (!active) return;
         setOverview(res);
-        if (!selectedPreviewGroupId && res.standingsPreview.length > 0) {
+        if (
+          !selectedPreviewGroupId &&
+          Array.isArray(res?.standingsPreview) &&
+          res.standingsPreview.length > 0
+        ) {
           setSelectedPreviewGroupId(res.standingsPreview[0].groupId);
         }
       } catch (err) {

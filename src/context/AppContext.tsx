@@ -57,9 +57,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const refreshMetadata = useCallback(async (seasonOverride?: string) => {
     try {
       const seasonsRes = await apiRequest<{ seasons: Season[] }>('/api/public/seasons');
-      setSeasons(seasonsRes.seasons);
-      const activeSeason =
-        seasonsRes.seasons.find((s) => s.isActive) || seasonsRes.seasons[0];
+      const safeSeasons = Array.isArray(seasonsRes?.seasons) ? seasonsRes.seasons : [];
+      setSeasons(safeSeasons);
+      const activeSeason = safeSeasons.find((s) => s.isActive) || safeSeasons[0];
       const targetSeasonId = seasonOverride || selectedSeasonId || activeSeason?.id || '';
       if (targetSeasonId && targetSeasonId !== selectedSeasonId) {
         setSelectedSeasonId(targetSeasonId);
@@ -69,8 +69,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           zones: ZoneWithGroups[];
           groups: CompetitionGroup[];
         }>(`/api/public/zones?seasonId=${encodeURIComponent(targetSeasonId)}`);
-        setZones(zonesRes.zones);
-        setGroups(zonesRes.groups);
+        setZones(Array.isArray(zonesRes?.zones) ? zonesRes.zones : []);
+        setGroups(Array.isArray(zonesRes?.groups) ? zonesRes.groups : []);
       }
     } catch (err) {
       console.error('Failed to load competition metadata:', err);
@@ -114,8 +114,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         `/api/public/zones?seasonId=${encodeURIComponent(selectedSeasonId)}`
       )
         .then((res) => {
-          setZones(res.zones);
-          setGroups(res.groups);
+          setZones(Array.isArray(res?.zones) ? res.zones : []);
+          setGroups(Array.isArray(res?.groups) ? res.groups : []);
         })
         .catch(() => {});
     }
